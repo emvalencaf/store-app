@@ -30,6 +30,7 @@ const Button: React.FC<IButtonProps> = forwardRef<HTMLButtonElement, IButtonProp
             transition
         `, className)}
             ref={ref}
+            {...props}
         >
             {children}
         </button>
