@@ -4,7 +4,7 @@
 import { useRouter } from "next/navigation";
 
 // custom hooks
-import { usePreviewModal } from "../../../hooks";
+import { useCart, usePreviewModal } from "@/hooks";
 
 // next components
 import Image from "next/image";
@@ -30,7 +30,15 @@ const ProductCard: React.FC<IProductCardProps> = ({ data }) => {
 
     const previewModal = usePreviewModal();
 
+    const cart = useCart();
+
     const router = useRouter();
+
+    const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
+        event.stopPropagation();
+
+        cart.addItem(data);
+    }
 
     const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
         event.stopPropagation();
@@ -60,7 +68,7 @@ const ProductCard: React.FC<IProductCardProps> = ({ data }) => {
                             className="text-gray-600"
                         />
                         <IconButton
-                            onClick={() => {}}
+                            onClick={onAddToCart}
                             icon={<ShoppingCart size={20} />}
                             className="text-gray-600"
                         />

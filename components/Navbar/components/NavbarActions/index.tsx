@@ -1,10 +1,14 @@
 'use client';
 
+// custom hooks
+import { useCart } from "@/hooks";
+
 // ui
 import { Button } from "@/components/ui";
 
 // icons
 import { ShoppingBag } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 // interfaces
 export interface INavbarActionsProps {
@@ -13,11 +17,13 @@ export interface INavbarActionsProps {
 
 const NavbarActions: React.FC<INavbarActionsProps> = ({ title = '' }) => {
 
+    const cart = useCart();
     
+    const router = useRouter();
 
     return (
         <div className="ml-auto flex items-center gap-x-4">
-            <Button className="flex items-center rounded-full bg-black px-4 py-2">
+            <Button onClick={() => router.push("/cart")} className="flex items-center rounded-full bg-black px-4 py-2">
                 <ShoppingBag
                     size={20}
                     color="white"
@@ -25,7 +31,7 @@ const NavbarActions: React.FC<INavbarActionsProps> = ({ title = '' }) => {
                 <span
                     className="ml-2 text-sm font-medium text-white"
                 >
-                    0
+                    {cart.items.length}
                 </span>
             </Button>
         </div>

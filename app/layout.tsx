@@ -14,7 +14,7 @@ const font = Urbanist({ subsets: ['latin'] })
 import type { Metadata } from 'next'
 
 // providers
-import {ModalProvider} from '@/providers'
+import {ModalProvider, ToasterProvider} from '@/providers'
 
 export const metadata: Metadata = {
   title: 'Store App',
@@ -30,6 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <ModalProvider />
+        <ToasterProvider />
         <Navbar />
         {children}
         <Footer />
