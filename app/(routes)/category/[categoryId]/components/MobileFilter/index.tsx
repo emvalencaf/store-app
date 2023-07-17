@@ -41,26 +41,21 @@ const MobileFilter: React.FC<IMobileFilterProps> = ({ sizes, colors }) => {
 
             {/* Dialog postion */}
             <div className="fixed inset-0 z-40 flex">
-            <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl">
-                      {/* Close button */}
-                      <div className="flex items-center justify-end px-4">
-              <IconButton icon={<X size={15} />} onClick={onClose} />
-            </div>
+                <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl">
+                    {/* Close button */}
+                    <div className="flex items-center justify-end px-4">
+                        <IconButton icon={<X size={15} />} onClick={onClose} />
+                    </div>
 
-            <div className="p-4">
-              <Filter
-                valueKey="sizeId" 
-                name="Sizes" 
-                data={sizes}
-              />
-              <Filter 
-                valueKey="colorId" 
-                name="Colors" 
-                data={colors}
-              />
-            </div>  
-
-            </Dialog.Panel>
+                    <div className="p-4">
+                        <Filter valueKey="sizeId" name="Sizes" data={sizes} />
+                        <Filter
+                            valueKey="colorId"
+                            name="Colors"
+                            data={colors}
+                        />
+                    </div>
+                </Dialog.Panel>
             </div>
         </>
     );
