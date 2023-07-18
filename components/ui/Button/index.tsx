@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
 import { forwardRef } from "react";
 import { cn } from "../../../libs/utils";
 
 // interfaces
-export interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {};
+export interface IButtonProps
+    extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
-const Button: React.FC<IButtonProps> = forwardRef<HTMLButtonElement, IButtonProps>(({
-    className,
-    children,
-    disabled,
-    type = "button",
-    ...props
-}, ref) => {
+const Button: React.FC<IButtonProps> = forwardRef<
+    HTMLButtonElement,
+    IButtonProps
+>(({ className, children, disabled, type = "button", ...props }, ref) => {
     return (
         <button
-        className={cn(`
+            disabled={disabled}
+            className={cn(
+                `
             w-auto
             rounded-full
             bg-black
@@ -28,7 +28,9 @@ const Button: React.FC<IButtonProps> = forwardRef<HTMLButtonElement, IButtonProp
             font-semibold
             hover:opacity-75
             transition
-        `, className)}
+        `,
+                className
+            )}
             ref={ref}
             {...props}
         >

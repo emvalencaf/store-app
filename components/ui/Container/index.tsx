@@ -6,8 +6,8 @@ export interface IContainerProps {
 const Container: React.FC<IContainerProps> = ({ children }) => {
     return (
         <div className="mx-auto max-w-7xl">
-            {children}
-        </div>
+        {children}
+      </div>
     );
 };
 

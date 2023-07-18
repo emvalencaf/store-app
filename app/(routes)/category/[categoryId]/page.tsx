@@ -48,7 +48,6 @@ const CategoryPage: React.FC<ICategoryPageProps> = async ({
                                 name="Sizes"
                                 data={sizes}
                             />
-
                             <Filter
                                 valueKey="colorId"
                                 name="Colors"
